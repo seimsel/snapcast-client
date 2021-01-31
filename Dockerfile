@@ -1,5 +1,7 @@
 FROM alpine
 
-RUN apk add snapcast-client
+RUN apk update && apk add \
+  snapcast-client \
+  avahi
 
 ENTRYPOINT ["snapclient"]
