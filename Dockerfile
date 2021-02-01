@@ -5,5 +5,6 @@ RUN apk update && apk add \
   avahi
 
 RUN printf "[server]\nenable-dbus=no\n" >> /etc/avahi/avahi-daemon.conf
+COPY ./entrypoint.sh ./entrypoint.sh
 
-ENTRYPOINT ["sh", "-c", "avahi-daemon --daemonize --no-drop-root && snapclient"]
+ENTRYPOINT ["./entrypoint.sh"]
